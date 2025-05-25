@@ -10,12 +10,12 @@ import courseRoute from "./routes/course.route.js";
 import userRoute from "./routes/user.route.js";
 import adminRoute from "./routes/admin.route.js";
 import orderRoute from "./routes/order.route.js";
-import path from "path";
+
 const app=express()
 
 app.use(bodyParser.json())
 app.use(cookieParser())
-const _dirname = path.resolve();
+
 
 
 config({path:".env"})
@@ -76,11 +76,6 @@ app.use("/api/v1/user", userRoute);
 app.use("/api/v1/admin", adminRoute);
 app.use("/api/v1/order", orderRoute);
 
-
- app.use(express.static(path.join(_dirname,"/frontend/dist")));
- app.get('/{*any}',(req,res)=>{
-    res.sendFile(path.resolve(_dirname,"Frontend","dist","index.html"));
- })
 
 const PORT= process.env.PORT
 app.listen(PORT,()=>console.log("Server is running"))
