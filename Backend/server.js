@@ -43,7 +43,7 @@ cloudinary.config({
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://course-app-vj3i.vercel.app/"],
+    origin: ["http://localhost:5173", "https://course-app-vj3i.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
