@@ -45,6 +45,7 @@ cloudinary.config({
 
 const allowedOrigins = [
   'http://localhost:5173',
+  'https://course-app-vj3i.vercel.app/'
 ];
 
 app.use(cors({
