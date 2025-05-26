@@ -76,6 +76,12 @@ app.use("/api/v1/user", userRoute);
 app.use("/api/v1/admin", adminRoute);
 app.use("/api/v1/order", orderRoute);
 
+app.get('/', (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false
+  });
+});
 
 const PORT= process.env.PORT
 app.listen(PORT,()=>console.log("Server is running"))
