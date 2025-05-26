@@ -50,24 +50,16 @@ app.use(
   })
 );
 
-// const allowedOrigins = [
-//   'http://localhost:5173',
-//   'https://course-app-vj3i.vercel.app/'
-// ];
-
-// app.use(cors({
-//   origin: function(origin, callback){
-//     if(!origin) return callback(null, true);
-//     if(allowedOrigins.indexOf(origin) === -1){
-//       const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-//       return callback(new Error(msg), false);
-//     }
-//     return callback(null, true);
-//   },
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   allowedHeaders: ["Content-Type", "Authorization"]
-// }));
+app.use(function (req, res, next) {
+  //Enabling CORS
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type,Accept, x-client-key, x-client-token, x-client-secret, Authorization"
+  );
+  next();
+});
 
 mongoose
   .connect(process.env.MONGO_URL, {
